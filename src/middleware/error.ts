@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 
 class CustomError extends Error {
   constructor(public status: number, public message: string) {
@@ -11,8 +11,7 @@ class CustomError extends Error {
 const errorHandler = (
   err: Error | CustomError,
   req: Request,
-  res: Response,
-  next: NextFunction
+  res: Response
 ) => {
   if (err instanceof CustomError) {
     return res.status(err.status).json({

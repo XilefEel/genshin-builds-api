@@ -7,20 +7,21 @@ const characterBuilds: CharacterGuide[] = [
     id: 1,
     name: "Nilou",
     summary: {
-      element: "hydro",
-      weapon: "sword",
-      role: "support",
+      element: "Hydro",
+      rarity: "5 Star",
+      weapon: "Sword",
+      role: ["Reaction", "Applicator"],
     },
     bestWeapons: [
       {
         name: "Key of Khaj Nisut",
-        rarity: "5 star",
+        rarity: "5 Star",
         rating: 5,
       },
     ],
     bestArtifacts: [
       {
-        set: ["2pc HP% 2pc HP%"],
+        set: ["2pc Tenacity 2pc Vorushaka", "2pc Tenacity 2pc Gilded"],
         mainStats: {
           sands: "HP%",
           goblet: "HP%",
@@ -34,31 +35,32 @@ const characterBuilds: CharacterGuide[] = [
     bestTeams: [
       ["Nilou", "Kokomi", "Nahida", "Lauma"],
       ["Nilou", "Kokomi", "Nahida", "Baizhu"],
-      ["Nilou", "Kokomi", "Nahida", "Yaoyao"],
+      ["Nilou", "Barbara", "Dendro MC", "Collei"],
     ],
   },
   {
     id: 2,
     name: "Sangonomiya Kokomi",
     summary: {
-      element: "hydro",
-      weapon: "catalyst",
-      role: "healer",
+      element: "Hydro",
+      rarity: "5 Star",
+      weapon: "Catalyst",
+      role: ["Healer", "Buffer", "Applicator"],
     },
     bestWeapons: [
       {
-        name: "Key of Khaj Nisut",
-        rarity: "5 star",
+        name: "TTDS",
+        rarity: "5 Star",
         rating: 5,
       },
     ],
     bestArtifacts: [
       {
-        set: ["2pc HP% 2pc HP%"],
+        set: ["4pc Ocean", "4pc Gilded"],
         mainStats: {
-          sands: "HP%",
-          goblet: "HP%",
-          circlet: "HP%",
+          sands: ["HP%", "EM"],
+          goblet: ["HP%", "EM"],
+          circlet: ["HB%", "EM"],
         },
         subStats: ["HP", "HP%", "EM", "ER%"],
       },
@@ -75,14 +77,15 @@ const characterBuilds: CharacterGuide[] = [
     id: 3,
     name: "Nahida",
     summary: {
-      element: "dendro",
-      weapon: "catalyst",
-      role: "buffer",
+      element: "Dendro",
+      rarity: "5 Star",
+      weapon: "Catalyst",
+      role: ["Buffer", "Reaction"],
     },
     bestWeapons: [
       {
         name: "A Thousand Floating Dreams",
-        rarity: "5 star",
+        rarity: "5 Star",
         rating: 5,
       },
     ],
@@ -91,8 +94,8 @@ const characterBuilds: CharacterGuide[] = [
         set: ["4pc Deepwood"],
         mainStats: {
           sands: "EM",
-          goblet: "EM",
-          circlet: "EM",
+          goblet: ["EM", "Dendro DMG%"],
+          circlet: ["EM", "CR%", "CD%"],
         },
         subStats: ["EM", "ER%", "CR%", "CD%"],
       },
@@ -109,26 +112,27 @@ const characterBuilds: CharacterGuide[] = [
     id: 4,
     name: "Lauma",
     summary: {
-      element: "dendro",
-      weapon: "catalyst",
-      role: "buffer",
+      element: "Dendro",
+      rarity: "5 Star",
+      weapon: "Catalyst",
+      role: ["Buffer", "Reaction"],
     },
     bestWeapons: [
       {
         name: "Key of Khaj Nisut",
-        rarity: "5 star",
+        rarity: "5 Star",
         rating: 5,
       },
     ],
     bestArtifacts: [
       {
-        set: ["2pc HP% 2pc HP%"],
+        set: ["4pc Serenade"],
         mainStats: {
-          sands: "HP%",
-          goblet: "HP%",
-          circlet: "HP%",
+          sands: "EM",
+          goblet: "EM",
+          circlet: ["EM", "CR%", "CD%"],
         },
-        subStats: ["HP", "HP%", "EM", "ER%"],
+        subStats: ["EM", "ER%", "CR%", "CD%"],
       },
     ],
     talentPriority: ["Skill", "Burst", "AA"],

@@ -82,8 +82,12 @@ export const getSingleCharacter = (
   next: NextFunction
 ) => {
   const id = Number(req.params.id);
-  const character = characterBuilds.find((c) => c.id === id);
+  if (isNaN(id)) {
+    const err = new CustomError(404, "Bad request. Invalid id");
+    return next(err);
+  }
 
+  const character = characterBuilds.find((c) => c.id === id);
   if (!character) {
     const err = new CustomError(404, `Character with id of ${id} not found`);
     return next(err);
@@ -97,8 +101,12 @@ export const updateCharacter = (
   next: NextFunction
 ) => {
   const id = Number(req.params.id);
-  const index = characterBuilds.findIndex((c) => c.id === id);
+  if (isNaN(id)) {
+    const err = new CustomError(404, "Bad request. Invalid id");
+    return next(err);
+  }
 
+  const index = characterBuilds.findIndex((c) => c.id === id);
   if (index === -1) {
     const err = new CustomError(404, `Character with id of ${id} not found`);
     return next(err);
@@ -118,8 +126,12 @@ export const deleteCharacter = (
   next: NextFunction
 ) => {
   const id = Number(req.params.id);
-  const index = characterBuilds.findIndex((c) => c.id === id);
+  if (isNaN(id)) {
+    const err = new CustomError(404, "Bad request. Invalid id");
+    return next(err);
+  }
 
+  const index = characterBuilds.findIndex((c) => c.id === id);
   if (index === -1) {
     const err = new CustomError(404, `Character with id of ${id} not found`);
     return next(err);

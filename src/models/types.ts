@@ -1,43 +1,81 @@
 type Element =
-  | "pyro"
-  | "hydro"
-  | "cryo"
-  | "electro"
-  | "dendro"
-  | "anemo"
-  | "geo";
+  | "Pyro"
+  | "Hydro"
+  | "Cryo"
+  | "Electro"
+  | "Dendro"
+  | "Anemo"
+  | "Geo";
 
-type WeaponType = "sword" | "claymore" | "polearm" | "catalyst" | "bow";
+type WeaponType = "Sword" | "Claymore" | "Polearm" | "Catalyst" | "Bow";
 
 type Role =
-  | "on-field dps"
-  | "off-field dps"
-  | "support"
-  | "healer"
-  | "buffer"
-  | "debuffer";
+  | "On-field DPS"
+  | "Off-field DPS"
+  | "Healer"
+  | "Buffer"
+  | "Debuffer"
+  | "Reaction"
+  | "Applicator";
+
+type Rarity = "3 Star" | "4 Star" | "5 Star";
+
+type SubStats =
+  | "HP"
+  | "HP%"
+  | "ATK"
+  | "ATK%"
+  | "DEF"
+  | "DEF%"
+  | "EM"
+  | "ER%"
+  | "CR%"
+  | "CD%";
+
+type SandStats = "HP%" | "ATK%" | "DEF%" | "EM" | "ER%";
+
+type GobletStats =
+  | "HP%"
+  | "ATK%"
+  | "DEF%"
+  | "EM"
+  | "Pyro DMG%"
+  | "Hydro DMG%"
+  | "Cryo DMG%"
+  | "Electro DMG%"
+  | "Dendro DMG%"
+  | "Anemo DMG%"
+  | "Geo DMG%"
+  | "Physical DMG%";
+
+type CircletStats = "HP%" | "ATK%" | "DEF%" | "EM" | "CR%" | "CD%" | "HB%";
+
+type Talent = "AA" | "Skill" | "Burst";
+
+type Constellations = "1" | "2" | "3" | "4" | "5" | "6";
 
 type Summary = {
   element: Element;
+  rarity: Rarity;
   weapon: WeaponType;
-  role: Role;
+  role: Role | Role[];
   description?: string;
 };
 
 type BestWeapons = {
   name: string;
-  rarity: "3 star" | "4 star" | "5 star";
+  rarity: Rarity;
   rating: 1 | 2 | 3 | 4 | 5;
 };
 
 type BestArtifacts = {
-  set: string[];
+  set: string | string[];
   mainStats: {
-    sands: string;
-    goblet: string;
-    circlet: string;
+    sands: SandStats | SandStats[];
+    goblet: GobletStats | GobletStats[];
+    circlet: CircletStats | CircletStats[];
   };
-  subStats: string[];
+  subStats: SubStats[];
 };
 
 // main types
@@ -47,14 +85,14 @@ export type CharacterGuide = {
   summary?: Summary;
   bestWeapons: BestWeapons[];
   bestArtifacts: BestArtifacts[];
-  talentPriority: string[];
-  bestConstellations: string[];
+  talentPriority: Talent[];
+  bestConstellations: Constellations[];
   bestTeams: string[][];
 };
 
 export type NewCharacterGuide = Omit<CharacterGuide, "id">;
 
-export type UpdateCharacterGuide = Partial<Omit<CharacterGuide, "id">>;
+export type UpdateCharacterGuide = Partial<CharacterGuide>;
 
 export type CharacterQueryParams = {
   element?: Element;

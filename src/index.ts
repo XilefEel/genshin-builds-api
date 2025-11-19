@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
-import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import path from "path";
 import router from "./routes/routes.js";
 import logger from "./middleware/logger.js";
 import errorHandler from "./middleware/error.js";
@@ -10,9 +10,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const characterRouter = router;
 
+// for frontend
 app.use(express.static(path.join(__dirname, "public")));
 
 // middleware
@@ -21,9 +22,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger);
 
 // routes
-app.use("/characters", characterRouter);
+app.use("/api/characters", characterRouter);
 
-// error handler
+// error handler (must be last)
 app.use(errorHandler);
 
 app.get("/", (req: Request, res: Response) => {

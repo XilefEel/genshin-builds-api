@@ -25,7 +25,7 @@ router
   .get(getSingleCharacter)
 
   // update character
-  .put(updateCharacter)
+  .patch(updateCharacter)
 
   // delete character
   .delete(deleteCharacter);

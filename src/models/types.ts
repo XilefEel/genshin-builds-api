@@ -9,7 +9,13 @@ type Element =
 
 type WeaponType = "sword" | "claymore" | "polearm" | "catalyst" | "bow";
 
-type Role = "on-field dps" | "off-field dps" | "healer" | "buffer" | "debuffer";
+type Role =
+  | "on-field dps"
+  | "off-field dps"
+  | "support"
+  | "healer"
+  | "buffer"
+  | "debuffer";
 
 type Summary = {
   element: Element;
@@ -49,3 +55,12 @@ export type CharacterGuide = {
 export type NewCharacterGuide = Omit<CharacterGuide, "id">;
 
 export type UpdateCharacterGuide = Partial<Omit<CharacterGuide, "id">>;
+
+export type CharacterQueryParams = {
+  element?: Element;
+  weapon?: WeaponType;
+  role?: Role;
+  search?: string;
+  sort?: string;
+  limit?: string;
+};

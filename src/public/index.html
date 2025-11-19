@@ -4,12 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <h1>Welcome to the Genshin Character Build Guide API</h1>
     <h3>
-      This is an API made in ExpressJs and Typescript for <br />
-      simple build guides for Genshin Characters
+      This is an API made in ExpressJs and Typescript for simple build guides
+      for Genshin Characters
     </h3>
+
+    <button id="get-all">Get all characters</button>
+
+    <br /><br />
+
+    <input type="text" id="char-id" placeholder="ID" />
+    <button id="get-single">Get single character</button>
+
+    <br /><br />
+
+    <input type="text" id="filter-element" placeholder="Element" />
+    <button id="element">Filter</button>
+
+    <br /><br />
+
+    <input type="text" id="filter-role" placeholder="Role" />
+    <button id="role">Filter</button>
+
+    <br /><br />
+
+    <pre id="output"></pre>
+
+    <script src="./js/main.js"></script>
   </body>
 </html>

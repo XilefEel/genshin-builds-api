@@ -13,6 +13,8 @@ const app = express();
 const port = 3000;
 const characterRouter = router;
 
+app.use(express.static(path.join(__dirname, "public")));
+
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

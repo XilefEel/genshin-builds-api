@@ -5,6 +5,7 @@ import {
   NewCharacterGuide,
   UpdateCharacterGuide,
 } from "../models/types.js";
+import { CustomError } from "../middleware/error.js";
 
 const router = express.Router();
 
@@ -28,7 +29,7 @@ router
     };
 
     if (!newBuild.name) {
-      return res.status(400).send({
+      return res.status(400).json({
         message: "Character must have a name",
       });
     }
@@ -46,8 +47,7 @@ router
     const character = characterBuilds.find((c) => c.id === id);
 
     if (!character) {
-      const err: any = new Error(`Character with id of ${id} not found`);
-      err.status = 404;
+      const err = new CustomError(404, `Character with id of ${id} not found`);
       return next(err);
     }
     res.status(200).json(character);
@@ -55,40 +55,44 @@ router
 
   // update character
   .put(
-    (req: Request<{ id: string }, {}, UpdateCharacterGuide>, res: Response) => {
+    (
+      req: Request<{ id: string }, {}, UpdateCharacterGuide>,
+      res: Response,
+      next: NextFunction
+    ) => {
       const id = Number(req.params.id);
       const index = characterBuilds.findIndex((c) => c.id === id);
 
       if (index === -1) {
-        return res.status(404).send({ message: "Character not found" });
+        const err = new CustomError(
+          404,
+          `Character with id of ${id} not found`
+        );
+        return next(err);
       }
 
-      // characterBuilds[index] = {
-      //   ...characterBuilds[index],
-      //   ...req.body,
-      // };
+      characterBuilds[index] = {
+        ...characterBuilds[index],
+        ...req.body,
+      };
 
-      res.status(200).send(characterBuilds[index]);
+      res.status(200).json(characterBuilds[index]);
     }
   )
 
   // delete character
-  .delete((req: Request, res: Response) => {
+  .delete((req: Request, res: Response, next: NextFunction) => {
     const id = Number(req.params.id);
     const index = characterBuilds.findIndex((c) => c.id === id);
 
     if (index === -1) {
-      return res.status(404).send({ message: "Character not found" });
+      const err = new CustomError(404, `Character with id of ${id} not found`);
+      return next(err);
     }
 
-    characterBuilds.filter((c) => c.id !== id);
+    characterBuilds.splice(index, 1);
 
-    res.status(200).send({ message: "Character deleted" });
+    res.status(204).send({});
   });
-
-// router.param("id", (req: Request, res: Response, next: NextFunction, id) => {
-//   console.log(id);
-//   next();
-// });
 
 export default router;

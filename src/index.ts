@@ -17,10 +17,13 @@ const characterRouter = router;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(logger);
-app.use(errorHandler);
 
 // routes
 app.use("/characters", characterRouter);
+
+// error handler
+app.use(errorHandler);
+
 app.get("/", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });

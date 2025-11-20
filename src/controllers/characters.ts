@@ -15,15 +15,26 @@ export const getAllCharacters = (
   let results: CharacterGuide[] = characterBuilds;
 
   if (req.query.element) {
-    results = results.filter((c) => c.summary?.element === req.query.element);
+    results = results.filter(
+      (c) =>
+        c.summary?.element.toLowerCase() === req.query.element?.toLowerCase()
+    );
   }
 
   if (req.query.weapon) {
-    results = results.filter((c) => c.summary?.weapon === req.query.weapon);
+    results = results.filter(
+      (c) => c.summary?.weapon.toLowerCase() === req.query.weapon?.toLowerCase()
+    );
   }
 
   if (req.query.role) {
-    results = results.filter((c) => c.summary?.role === req.query.role);
+    const queryRole = req.query.role.toLowerCase();
+
+    results = results.filter((c) => {
+      const role = c.summary?.role;
+      if (!role) return false;
+      return role.some((r) => r.toLowerCase() === queryRole);
+    });
   }
 
   if (req.query.search) {

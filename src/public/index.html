@@ -7,32 +7,84 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <h1>Welcome to the Genshin Character Build Guide API</h1>
+    <h1>Genshin Character Build Guide API</h1>
     <h3>
-      This is an API made in ExpressJs and Typescript for simple build guides
+      This is an API made in ExpressJS and TypeScript for simple build guides
       for Genshin Characters
     </h3>
 
-    <button id="get-all">Get all characters</button>
+    <h3>Test out the API here</h3>
 
-    <br /><br />
+    <div class="container">
+      <div class="controls">
+        <div class="get">
+          <h3>Get</h3>
+          <button id="get-all">Get All Characters</button>
 
-    <input type="text" id="char-id" placeholder="ID" />
-    <button id="get-single">Get single character</button>
+          <div>
+            <input type="number" id="char-id" placeholder="Character ID" />
+            <button id="get-single">Get Single Character</button>
+          </div>
 
-    <br /><br />
+          <p>Filters:</p>
 
-    <input type="text" id="filter-element" placeholder="Element" />
-    <button id="element">Filter</button>
+          <div class="container-filter">
+            <select id="filter-element">
+              <option value="">Select Element</option>
+              <option value="pyro">Pyro</option>
+              <option value="hydro">Hydro</option>
+              <option value="cryo">Cryo</option>
+              <option value="electro">Electro</option>
+              <option value="dendro">Dendro</option>
+              <option value="anemo">Anemo</option>
+              <option value="geo">Geo</option>
+            </select>
 
-    <br /><br />
+            <select id="filter-weapon">
+              <option value="">Select Weapon</option>
+              <option value="sword">Sword</option>
+              <option value="claymore">Claymore</option>
+              <option value="bow">Bow</option>
+              <option value="polearm">Polearm</option>
+              <option value="catalyst">Catalyst</option>
+            </select>
 
-    <input type="text" id="filter-role" placeholder="Role" />
-    <button id="role">Filter</button>
-
-    <br /><br />
-
-    <pre id="output"></pre>
+            <select id="filter-role">
+              <option value="">Select Role</option>
+              <option value="on-field dps">On-field DPS</option>
+              <option value="off-field dps">Off-field DPS</option>
+              <option value="healer">Healer</option>
+              <option value="buffer">Buffer</option>
+              <option value="debuffer">Debuffer</option>
+              <option value="reaction">Reaction</option>
+              <option value="applicator">Applicator</option>
+            </select>
+          </div>
+        </div>
+        <div class="post">
+          <h3>Post</h3>
+          <div>
+            <input type="text" id="char-name" placeholder="Character Name" />
+            <button id="create-character">Create Character</button>
+          </div>
+        </div>
+        <div class="patch">
+          <h3>Patch</h3>
+          <div>
+            <input type="number" id="char-id" placeholder="Character ID" />
+            <button id="update-character">Update Character</button>
+          </div>
+        </div>
+        <div class="delete">
+          <h3>Delete</h3>
+          <div>
+            <input type="number" id="char-id" placeholder="Character ID" />
+            <button id="delete-character">Delete Character</button>
+          </div>
+        </div>
+      </div>
+      <pre id="output"></pre>
+    </div>
 
     <script src="./js/main.js"></script>
   </body>

@@ -23,9 +23,9 @@ const characterBuilds: CharacterGuide[] = [
       {
         set: ["2pc Tenacity 2pc Vorushaka", "2pc Tenacity 2pc Gilded"],
         mainStats: {
-          sands: "HP%",
-          goblet: "HP%",
-          circlet: "HP%",
+          sands: ["HP%"],
+          goblet: ["HP%"],
+          circlet: ["HP%"],
         },
         subStats: ["HP", "HP%", "EM", "ER%"],
       },
@@ -33,9 +33,11 @@ const characterBuilds: CharacterGuide[] = [
     talentPriority: ["Skill", "Burst", "AA"],
     bestConstellations: ["2", "6", "1", "4", "3", "5"],
     bestTeams: [
-      ["Nilou", "Kokomi", "Nahida", "Lauma"],
-      ["Nilou", "Kokomi", "Nahida", "Baizhu"],
-      ["Nilou", "Barbara", "Dendro MC", "Collei"],
+      {
+        name: "Nilou Bloom",
+        cost: "Premium",
+        team: ["Nilou", "Kokomi", "Nahida", "Lauma"],
+      },
     ],
   },
   {
@@ -68,9 +70,11 @@ const characterBuilds: CharacterGuide[] = [
     talentPriority: ["Skill", "Burst", "AA"],
     bestConstellations: ["2", "6", "1", "4", "3", "5"],
     bestTeams: [
-      ["Nilou", "Kokomi", "Nahida", "Lauma"],
-      ["Nilou", "Kokomi", "Nahida", "Baizhu"],
-      ["Nilou", "Kokomi", "Nahida", "Yaoyao"],
+      {
+        name: "Nilou Bloom",
+        cost: "Premium",
+        team: ["Nilou", "Kokomi", "Nahida", "Lauma"],
+      },
     ],
   },
   {
@@ -93,7 +97,7 @@ const characterBuilds: CharacterGuide[] = [
       {
         set: ["4pc Deepwood"],
         mainStats: {
-          sands: "EM",
+          sands: ["EM"],
           goblet: ["EM", "Dendro DMG%"],
           circlet: ["EM", "CR%", "CD%"],
         },
@@ -103,9 +107,11 @@ const characterBuilds: CharacterGuide[] = [
     talentPriority: ["Skill", "Burst", "AA"],
     bestConstellations: ["2", "6", "1", "4", "3", "5"],
     bestTeams: [
-      ["Nilou", "Kokomi", "Nahida", "Lauma"],
-      ["Nilou", "Kokomi", "Nahida", "Baizhu"],
-      ["Nilou", "Kokomi", "Nahida", "Yaoyao"],
+      {
+        name: "Nilou Bloom",
+        cost: "Premium",
+        team: ["Nilou", "Kokomi", "Nahida", "Lauma"],
+      },
     ],
   },
   {
@@ -128,8 +134,8 @@ const characterBuilds: CharacterGuide[] = [
       {
         set: ["4pc Serenade"],
         mainStats: {
-          sands: "EM",
-          goblet: "EM",
+          sands: ["EM"],
+          goblet: ["EM"],
           circlet: ["EM", "CR%", "CD%"],
         },
         subStats: ["EM", "ER%", "CR%", "CD%"],
@@ -138,9 +144,11 @@ const characterBuilds: CharacterGuide[] = [
     talentPriority: ["Skill", "Burst", "AA"],
     bestConstellations: ["2", "6", "1", "4", "3", "5"],
     bestTeams: [
-      ["Nilou", "Kokomi", "Nahida", "Lauma"],
-      ["Nilou", "Kokomi", "Nahida", "Baizhu"],
-      ["Nilou", "Kokomi", "Nahida", "Yaoyao"],
+      {
+        name: "Nilou Bloom",
+        cost: "Premium",
+        team: ["Nilou", "Kokomi", "Nahida", "Lauma"],
+      },
     ],
   },
 ];

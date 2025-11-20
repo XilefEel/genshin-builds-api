@@ -58,7 +58,7 @@ type Summary = {
   element: Element;
   rarity: Rarity;
   weapon: WeaponType;
-  role: Role | Role[];
+  role: Role[];
   description?: string;
 };
 
@@ -69,13 +69,19 @@ type BestWeapons = {
 };
 
 type BestArtifacts = {
-  set: string | string[];
+  set: string[];
   mainStats: {
-    sands: SandStats | SandStats[];
-    goblet: GobletStats | GobletStats[];
-    circlet: CircletStats | CircletStats[];
+    sands: SandStats[];
+    goblet: GobletStats[];
+    circlet: CircletStats[];
   };
   subStats: SubStats[];
+};
+
+type BestTeams = {
+  name: string;
+  cost: "F2P" | "Premium";
+  team: string[];
 };
 
 // main types
@@ -87,7 +93,7 @@ export type CharacterGuide = {
   bestArtifacts: BestArtifacts[];
   talentPriority: Talent[];
   bestConstellations: Constellations[];
-  bestTeams: string[][];
+  bestTeams: BestTeams[];
 };
 
 export type NewCharacterGuide = Omit<CharacterGuide, "id">;
